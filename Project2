@@ -56,11 +56,9 @@ public class Project2
         int[] descend10 = array.createArray(des10,10000);
         System.out.println("Descending 10000,Quick: " + quick.sort(descend10,0,9999));
         array.overwriteFile(des10, descend10, 10000);
-
 //        int[] descend20 = array.createArray(des20,20000);
 //        System.out.println("Descending 20000,Quick: " + quick.sort(descend20,0,19999));
 //        array.overwriteFile(des20, descend20, 20000);
-//
 //        int[] descend50 = array.createArray(des50,50000);
 //        System.out.println("Descending 50000,Quick: " + quick.sort(descend50,0,49999));
 //        array.overwriteFile(des50, descend50, 50000);
@@ -95,8 +93,8 @@ public class Project2
 
         //resetting files for merge sort
         test.descending();
-        //test.ascending();
-        //test.random();
+        test.ascending();
+        test.random();
 
         //run sorting methods and overwrite unsorted file for...
         //descending integers
@@ -104,8 +102,29 @@ public class Project2
         array.overwriteFile(des5, descend5, 5000);
         System.out.println("Descending 10000,Merge: " + quick.sort(descend10,0,9999));
         array.overwriteFile(des10, descend10, 10000);
+//        System.out.println("Descending 20000,Merge: " + quick.sort(descend20,0,19999));
+//        array.overwriteFile(des20, descend20, 20000);
+//        System.out.println("Descending 50000,Merge: " + quick.sort(descend50,0,49999));
+//        array.overwriteFile(des50, descend50, 50000);
 
+        //ascending integers
+        System.out.println("Ascending 5000,Merge: " + quick.sort(ascend5,0,4999));
+        array.overwriteFile(asc5, ascend5, 5000);
+        System.out.println("Ascending 10000,Merge: " + quick.sort(ascend10,0,9999));
+        array.overwriteFile(asc10, ascend10, 10000);
+//        System.out.println("Ascending 20000,Merge: " + quick.sort(ascend20,0,19999));
+//        array.overwriteFile(asc20, ascend20, 20000);
+//        System.out.println("Ascending 50000,Merge: " + quick.sort(ascend5,0,49999));
+//        array.overwriteFile(asc50, ascend50, 50000);
 
-
+        //random integers
+        System.out.println("Random 5000,Merge: " + quick.sort(random5,0,4999));
+        array.overwriteFile(ran5, random5, 5000);
+        System.out.println("Random 10000,Merge: " + quick.sort(random10,0,9999));
+        array.overwriteFile(ran10, random10, 10000);
+//        System.out.println("Random 20000,Merge: " + quick.sort(random20,0,19999));
+//        array.overwriteFile(ran20, random20, 20000);
+//        System.out.println("Random 50000,Merge: " + quick.sort(random50,0,49999));
+//        array.overwriteFile(ran50, random50, 50000);
     }
 }
