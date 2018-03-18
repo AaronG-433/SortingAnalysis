@@ -1,0 +1,111 @@
+/*
+Description: (Written by instructor)
+    Create input files of four sizes: 5000, 10000, 20000, and 50000 integers with one integer per line.
+    For each size file make 3 versions.
+    One version will be randomly ordered, one version will be in descending order, and one version will be in ascending order.
+    This means you have a set of 12 input files.
+    Run each sort against all input files.
+    Thus, you will run average case, worst case (descending) and best case (ascending).
+    For each run, access the system clock to get time values.
+    The call to the clock should be placed as closely as possible to the beginning and end of each sort.
+Author:
+    Aaron Gaskin
+Section:
+    1079
+ */
+import java.io.File;
+
+public class Project2
+{
+    public static void main(String args[])
+    {
+
+        //creating files with descending, ascending, and random integers
+        CreateFiles test = new CreateFiles();
+        test.descending();
+        test.ascending();
+        test.random();
+
+        //creating file paths
+        File des5 = new File("des5");
+        File asc5 = new File("asc5");
+        File ran5 = new File("ran5");
+
+        File des10 = new File("des10");
+        File asc10 = new File("asc10");
+        File ran10 = new File("ran10");
+
+        File des20 = new File("des20");
+        File asc20 = new File("asc20");
+        File ran20 = new File("ran20");
+
+        File des50 = new File("des50");
+        File asc50 = new File("asc50");
+        File ran50 = new File("ran50");
+
+        //create needed objects for sorting
+        FileToArraySort array = new FileToArraySort();
+        QuickSort quick = new QuickSort();
+        MergeSort merge = new MergeSort();
+
+        //run sorting methods and overwrite unsorted file for...
+        //descending integers
+        int[] descend5 = array.createArray(des5,5000);
+        System.out.println("Descending 5000,Quick: " + quick.sort(descend5,0,4999));
+        array.overwriteFile(des5, descend5, 5000);
+        int[] descend10 = array.createArray(des10,10000);
+        System.out.println("Descending 10000,Quick: " + quick.sort(descend10,0,9999));
+        array.overwriteFile(des10, descend10, 10000);
+
+//        int[] descend20 = array.createArray(des20,20000);
+//        System.out.println("Descending 20000,Quick: " + quick.sort(descend20,0,19999));
+//        array.overwriteFile(des20, descend20, 20000);
+//
+//        int[] descend50 = array.createArray(des50,50000);
+//        System.out.println("Descending 50000,Quick: " + quick.sort(descend50,0,49999));
+//        array.overwriteFile(des50, descend50, 50000);
+
+        //ascending integers
+        int[] ascend5 = array.createArray(asc5,5000);
+        System.out.println("Ascending 5000,Quick: " + quick.sort(ascend5,0,4999));
+        array.overwriteFile(asc5, ascend5, 5000);
+        int[] ascend10 = array.createArray(asc10,10000);
+        System.out.println("Ascending 10000,Quick: " + quick.sort(ascend10,0,9999));
+        array.overwriteFile(asc10, ascend10, 10000);
+//        int[] ascend20 = array.createArray(asc20,20000);
+//        System.out.println("Ascending 20000,Quick: " + quick.sort(ascend20,0,19999));
+//        array.overwriteFile(asc20, ascend20, 20000);
+//        int[] ascend50 = array.createArray(asc50,50000);
+//        System.out.println("Ascending 50000,Quick: " + quick.sort(ascend5,0,49999));
+//        array.overwriteFile(asc50, ascend50, 50000);
+
+        //random integers
+        int[] random5 = array.createArray(ran5,5000);
+        System.out.println("Random 5000,Quick: " + quick.sort(random5,0,4999));
+        array.overwriteFile(ran5, random5, 5000);
+        int[] random10 = array.createArray(ran10,10000);
+        System.out.println("Random 10000,Quick: " + quick.sort(random10,0,9999));
+        array.overwriteFile(ran10, random10, 10000);
+//        int[] random20 = array.createArray(ran20,20000);
+//        System.out.println("Random 20000,Quick: " + quick.sort(random20,0,19999));
+//        array.overwriteFile(ran20, random20, 20000);
+//        int[] random50 = array.createArray(ran50,50000);
+//        System.out.println("Random 50000,Quick: " + quick.sort(random50,0,49999));
+//        array.overwriteFile(ran50, random50, 50000);
+
+        //resetting files for merge sort
+        test.descending();
+        //test.ascending();
+        //test.random();
+
+        //run sorting methods and overwrite unsorted file for...
+        //descending integers
+        System.out.println("Descending 5000,Merge: " + merge.sort(descend5,0,4999));
+        array.overwriteFile(des5, descend5, 5000);
+        System.out.println("Descending 10000,Merge: " + quick.sort(descend10,0,9999));
+        array.overwriteFile(des10, descend10, 10000);
+
+
+
+    }
+}
